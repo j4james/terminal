@@ -62,6 +62,7 @@ const RegistrySerialization::_RegPropertyMap RegistrySerialization::s_PropertyMa
     { _RegPropertyType::Boolean,        CONSOLE_REGISTRY_TERMINALSCROLLING,             SET_FIELD_AND_SIZE(_TerminalScrolling)           },
     { _RegPropertyType::Dword,          CONSOLE_REGISTRY_USEDX,                         SET_FIELD_AND_SIZE(_fUseDx)                      },
     { _RegPropertyType::Boolean,        CONSOLE_REGISTRY_COPYCOLOR,                     SET_FIELD_AND_SIZE(_fCopyColor)                  },
+    { _RegPropertyType::String,         CONSOLE_REGISTRY_ANSWERBACKMESSAGE,             SET_FIELD_AND_SIZE(_answerbackMessage)           },
     { _RegPropertyType::Dword,          CONSOLE_REGISTRY_DEFAULTFOREGROUND,             SET_FIELD_AND_SIZE(_colorTable[TextColor::DEFAULT_FOREGROUND]) },
     { _RegPropertyType::Dword,          CONSOLE_REGISTRY_DEFAULTBACKGROUND,             SET_FIELD_AND_SIZE(_colorTable[TextColor::DEFAULT_BACKGROUND]) },
     { _RegPropertyType::Dword,          CONSOLE_REGISTRY_CURSORCOLOR,                   SET_FIELD_AND_SIZE(_colorTable[TextColor::CURSOR_COLOR]) }

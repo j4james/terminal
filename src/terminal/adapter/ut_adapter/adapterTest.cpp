@@ -488,6 +488,13 @@ public:
         return TRUE;
     }
 
+    std::wstring_view GetAnswerbackMessage() const
+    {
+        Log::Comment(L"GetAnswerbackMessage MOCK called...");
+
+        return L"";
+    }
+
     void PrepData()
     {
         PrepData(CursorDirection::UP); // if called like this, the cursor direction doesn't matter.

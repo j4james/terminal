@@ -195,6 +195,8 @@ public:
     UseDx GetUseDx() const noexcept;
     bool GetCopyColor() const noexcept;
 
+    std::wstring_view GetAnswerbackMessage() const noexcept;
+
 private:
     DWORD _dwHotKey;
     DWORD _dwStartupFlags;
@@ -238,6 +240,7 @@ private:
     bool _fScreenReversed;
     UseDx _fUseDx;
     bool _fCopyColor;
+    WCHAR _answerbackMessage[32];
 
     std::array<COLORREF, TextColor::TABLE_SIZE> _colorTable;
 

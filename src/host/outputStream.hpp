@@ -140,6 +140,8 @@ public:
                                const SIZE cellSize,
                                const size_t centeringHint) noexcept override;
 
+    std::wstring_view GetAnswerbackMessage() const override;
+
 private:
     Microsoft::Console::IIoProvider& _io;
 };

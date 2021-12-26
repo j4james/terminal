@@ -843,3 +843,8 @@ bool Settings::GetCopyColor() const noexcept
 {
     return _fCopyColor;
 }
+
+std::wstring_view Settings::GetAnswerbackMessage() const noexcept
+{
+    return _answerbackMessage;
+}

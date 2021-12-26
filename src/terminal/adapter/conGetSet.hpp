@@ -105,5 +105,7 @@ namespace Microsoft::Console::VirtualTerminal
         virtual bool PrivateUpdateSoftFont(const gsl::span<const uint16_t> bitPattern,
                                            const SIZE cellSize,
                                            const size_t centeringHint) = 0;
+
+        virtual std::wstring_view GetAnswerbackMessage() const = 0;
     };
 }

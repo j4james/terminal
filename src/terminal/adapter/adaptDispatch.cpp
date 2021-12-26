@@ -1397,7 +1397,8 @@ bool AdaptDispatch::SetTopBottomScrollingMargins(const size_t topMargin,
 // - True if handled successfully. False otherwise.
 bool AdaptDispatch::EnquireAnswerback()
 {
-    return false;
+    const auto message = _pConApi->GetAnswerbackMessage();
+    return !message.empty() ? _WriteResponse(message) : false;
 }
 
 // Routine Description:

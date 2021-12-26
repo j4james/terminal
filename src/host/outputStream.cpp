@@ -746,3 +746,13 @@ bool ConhostInternalGetSet::PrivateUpdateSoftFont(const gsl::span<const uint16_t
 {
     return SUCCEEDED(DoSrvUpdateSoftFont(bitPattern, cellSize, centeringHint));
 }
+
+// Routine Description:
+// - Retrieves the ENQ answerback message configured in the registry.
+// Return Value:
+// - a std::wstring_view containing the message.
+std::wstring_view ConhostInternalGetSet::GetAnswerbackMessage() const
+{
+    const auto& gci = ServiceLocator::LocateGlobals().getConsoleInformation();
+    return gci.GetAnswerbackMessage();
+}
