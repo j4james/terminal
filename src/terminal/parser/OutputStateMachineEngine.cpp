@@ -52,6 +52,9 @@ bool OutputStateMachineEngine::ActionExecute(const wchar_t wch)
         // and have _nothing_ happen. Filter the NULs here, so they don't fill the
         // buffer with empty spaces.
         break;
+    case AsciiChars::ENQ:
+        _dispatch->EnquireAnswerback();
+        break;
     case AsciiChars::BEL:
         _dispatch->WarningBell();
         // microsoft/terminal#2952

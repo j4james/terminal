@@ -112,6 +112,11 @@ try
 }
 CATCH_LOG_RETURN_FALSE()
 
+bool TerminalDispatch::EnquireAnswerback() noexcept
+{
+    return false;
+}
+
 bool TerminalDispatch::WarningBell() noexcept
 try
 {

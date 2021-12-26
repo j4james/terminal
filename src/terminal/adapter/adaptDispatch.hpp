@@ -84,6 +84,7 @@ namespace Microsoft::Console::VirtualTerminal
         bool SetAutoWrapMode(const bool wrapAtEOL) override; // DECAWM
         bool SetTopBottomScrollingMargins(const size_t topMargin,
                                           const size_t bottomMargin) override; // DECSTBM
+        bool EnquireAnswerback() override; // ENQ
         bool WarningBell() override; // BEL
         bool CarriageReturn() override; // CR
         bool LineFeed(const DispatchTypes::LineFeedType lineFeedType) override; // IND, NEL, LF, FF, VT

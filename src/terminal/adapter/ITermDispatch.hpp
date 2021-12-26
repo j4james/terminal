@@ -63,6 +63,7 @@ public:
     virtual bool SetOriginMode(const bool relativeMode) = 0; // DECOM
     virtual bool SetAutoWrapMode(const bool wrapAtEOL) = 0; // DECAWM
     virtual bool SetTopBottomScrollingMargins(const size_t topMargin, const size_t bottomMargin) = 0; // DECSTBM
+    virtual bool EnquireAnswerback() = 0; // ENQ
     virtual bool WarningBell() = 0; // BEL
     virtual bool CarriageReturn() = 0; // CR
     virtual bool LineFeed(const DispatchTypes::LineFeedType lineFeedType) = 0; // IND, NEL, LF, FF, VT

@@ -36,6 +36,7 @@ public:
     bool LineFeed(const ::Microsoft::Console::VirtualTerminal::DispatchTypes::LineFeedType lineFeedType) noexcept override;
 
     bool EraseCharacters(const size_t numChars) noexcept override;
+    bool EnquireAnswerback() noexcept override;
     bool WarningBell() noexcept override;
     bool CarriageReturn() noexcept override;
     bool SetWindowTitle(std::wstring_view title) noexcept override;

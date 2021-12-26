@@ -54,6 +54,7 @@ public:
     bool SetOriginMode(const bool /*relativeMode*/) noexcept override { return false; }; // DECOM
     bool SetAutoWrapMode(const bool /*wrapAtEOL*/) noexcept override { return false; }; // DECAWM
     bool SetTopBottomScrollingMargins(const size_t /*topMargin*/, const size_t /*bottomMargin*/) noexcept override { return false; } // DECSTBM
+    bool EnquireAnswerback() noexcept override { return false; } // ENQ
     bool WarningBell() noexcept override { return false; } // BEL
     bool CarriageReturn() noexcept override { return false; } // CR
     bool LineFeed(const DispatchTypes::LineFeedType /*lineFeedType*/) noexcept override { return false; } // IND, NEL, LF, FF, VT
