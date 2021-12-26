@@ -35,6 +35,8 @@ namespace Microsoft::Console::VirtualTerminal
 
         bool HandleKey(const IInputEvent* const pInEvent);
 
+        void SendInputSequence(const std::wstring_view sequence) const noexcept;
+
         enum class Mode : size_t
         {
             Ansi,
@@ -92,7 +94,6 @@ namespace Microsoft::Console::VirtualTerminal
 
         void _SendChar(const wchar_t ch);
         void _SendNullInputSequence(const DWORD dwControlKeyState) const;
-        void _SendInputSequence(const std::wstring_view sequence) const noexcept;
         void _SendEscapedInputSequence(const wchar_t wch) const;
         static std::wstring _GenerateWin32KeySequence(const KeyEvent& key);
 

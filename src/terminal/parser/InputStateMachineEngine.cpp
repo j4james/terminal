@@ -273,7 +273,7 @@ bool InputStateMachineEngine::ActionPassThroughString(const std::wstring_view st
     if (_pDispatch->IsVtInputEnabled())
     {
         // Synthesize string into key events that we'll write to the buffer
-        // similar to TerminalInput::_SendInputSequence
+        // similar to TerminalInput::SendInputSequence
         if (!string.empty())
         {
             try

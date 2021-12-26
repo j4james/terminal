@@ -403,7 +403,7 @@ bool TerminalInput::HandleMouse(const COORD position,
 
                 if (success)
                 {
-                    _SendInputSequence(sequence);
+                    SendInputSequence(sequence);
                     success = true;
                 }
                 if (_inputMode.any(Mode::ButtonEventMouseTracking, Mode::AnyEventMouseTracking))
@@ -559,11 +559,11 @@ bool TerminalInput::_SendAlternateScroll(const short delta) const noexcept
 {
     if (delta > 0)
     {
-        _SendInputSequence(_inputMode.test(Mode::CursorKey) ? ApplicationUpSequence : CursorUpSequence);
+        SendInputSequence(_inputMode.test(Mode::CursorKey) ? ApplicationUpSequence : CursorUpSequence);
     }
     else
     {
-        _SendInputSequence(_inputMode.test(Mode::CursorKey) ? ApplicationDownSequence : CursorDownSequence);
+        SendInputSequence(_inputMode.test(Mode::CursorKey) ? ApplicationDownSequence : CursorDownSequence);
     }
     return true;
 }

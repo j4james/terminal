@@ -131,6 +131,8 @@ public:
     bool PushGraphicsRendition(const ::Microsoft::Console::VirtualTerminal::VTParameters options) noexcept override;
     bool PopGraphicsRendition() noexcept override;
 
+    bool WriteResponse(const std::wstring_view reply) const noexcept;
+
 #pragma endregion
 
 #pragma region ITerminalInput

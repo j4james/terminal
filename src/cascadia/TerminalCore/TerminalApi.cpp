@@ -638,3 +638,16 @@ bool Terminal::PopGraphicsRendition() noexcept
     _buffer->SetCurrentAttributes(_sgrStack.Pop(current));
     return true;
 }
+
+// Method Description:
+// - Helper to send a string reply to the input stream of the terminal.
+// - Used by various commands where the program attached would like a reply to one of the commands issued.
+// Arguments:
+// - reply - The reply string to transmit back to the input stream
+// Return Value:
+// - true
+bool Terminal::WriteResponse(const std::wstring_view reply) const noexcept
+{
+    _terminalInput->SendInputSequence(reply);
+    return true;
+}

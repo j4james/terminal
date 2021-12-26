@@ -66,6 +66,8 @@ namespace Microsoft::Terminal::Core
         virtual bool PushGraphicsRendition(const ::Microsoft::Console::VirtualTerminal::VTParameters options) noexcept = 0;
         virtual bool PopGraphicsRendition() noexcept = 0;
 
+        virtual bool WriteResponse(const std::wstring_view reply) const noexcept = 0;
+
     protected:
         ITerminalApi() = default;
     };

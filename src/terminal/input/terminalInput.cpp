@@ -540,7 +540,7 @@ bool TerminalInput::HandleKey(const IInputEvent* const pInEvent)
     if (_inputMode.test(Mode::Win32) && !_forceDisableWin32InputMode)
     {
         const auto seq = _GenerateWin32KeySequence(keyEvent);
-        _SendInputSequence(seq);
+        SendInputSequence(seq);
         return true;
     }
 
@@ -602,7 +602,7 @@ bool TerminalInput::HandleKey(const IInputEvent* const pInEvent)
     }
 
     const auto senderFunc = [this](const std::wstring_view seq) noexcept {
-        _SendInputSequence(seq);
+        SendInputSequence(seq);
     };
 
     // If a modifier key was pressed, then we need to try and send the modified sequence.
@@ -678,6 +678,26 @@ bool TerminalInput::HandleKey(const IInputEvent* const pInEvent)
     return false;
 }
 
+void TerminalInput::SendInputSequence(const std::wstring_view sequence) const noexcept
+{
+    if (!sequence.empty())
+    {
+        try
+        {
+            std::deque<std::unique_ptr<IInputEvent>> inputEvents;
+            for (const auto& wch : sequence)
+            {
+                inputEvents.push_back(std::make_unique<KeyEvent>(true, 1ui16, 0ui16, 0ui16, wch, 0));
+            }
+            _pfnWriteEvents(inputEvents);
+        }
+        catch (...)
+        {
+            LOG_HR(wil::ResultFromCaughtException());
+        }
+    }
+}
+
 // Routine Description:
 // - Sends the given character to the shell.
 // - Surrogate pairs are being aggregated by this function before being sent.
@@ -692,7 +712,7 @@ void TerminalInput::_SendChar(const wchar_t ch)
             // we already were storing a leading surrogate but we got another one. Go ahead and send the
             // saved surrogate piece and save the new one
             const auto formatted = wil::str_printf<std::wstring>(L"%I32u", _leadingSurrogate.value());
-            _SendInputSequence(formatted);
+            SendInputSequence(formatted);
         }
         // save the leading portion of a surrogate pair so that they can be sent at the same time
         _leadingSurrogate.emplace(ch);
@@ -701,11 +721,11 @@ void TerminalInput::_SendChar(const wchar_t ch)
     {
         std::array<wchar_t, 2> wstr{ { _leadingSurrogate.value(), ch } };
         _leadingSurrogate.reset();
-        _SendInputSequence({ wstr.data(), wstr.size() });
+        SendInputSequence({ wstr.data(), wstr.size() });
     }
     else
     {
-        _SendInputSequence({ &ch, 1 });
+        SendInputSequence({ &ch, 1 });
     }
 }
 
@@ -747,26 +767,6 @@ void TerminalInput::_SendNullInputSequence(const DWORD controlKeyState) const
     catch (...)
     {
         LOG_HR(wil::ResultFromCaughtException());
-    }
-}
-
-void TerminalInput::_SendInputSequence(const std::wstring_view sequence) const noexcept
-{
-    if (!sequence.empty())
-    {
-        try
-        {
-            std::deque<std::unique_ptr<IInputEvent>> inputEvents;
-            for (const auto& wch : sequence)
-            {
-                inputEvents.push_back(std::make_unique<KeyEvent>(true, 1ui16, 0ui16, 0ui16, wch, 0));
-            }
-            _pfnWriteEvents(inputEvents);
-        }
-        catch (...)
-        {
-            LOG_HR(wil::ResultFromCaughtException());
-        }
     }
 }
 
