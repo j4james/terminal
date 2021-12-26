@@ -400,7 +400,10 @@ bool ConhostInternalGetSet::PrivateLineFeed(const bool withReturn)
 // - true if successful. false otherwise.
 bool ConhostInternalGetSet::PrivateWarningBell()
 {
-    return _io.GetActiveOutputBuffer().SendNotifyBeep();
+    _io.GetActiveOutputBuffer().SendNotifyBeep();
+    // microsoft/terminal#2952
+    // If we're attached to a terminal, let's also pass the BEL through.
+    return !IsConsolePty();
 }
 
 // Routine Description:

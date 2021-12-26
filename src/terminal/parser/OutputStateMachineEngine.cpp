@@ -45,6 +45,8 @@ ITermDispatch& OutputStateMachineEngine::Dispatch() noexcept
 // - true iff we successfully dispatched the sequence.
 bool OutputStateMachineEngine::ActionExecute(const wchar_t wch)
 {
+    auto needPassthrough = false;
+
     switch (wch)
     {
     case AsciiChars::NUL:
@@ -53,16 +55,10 @@ bool OutputStateMachineEngine::ActionExecute(const wchar_t wch)
         // buffer with empty spaces.
         break;
     case AsciiChars::ENQ:
-        _dispatch->EnquireAnswerback();
+        needPassthrough = !_dispatch->EnquireAnswerback();
         break;
     case AsciiChars::BEL:
-        _dispatch->WarningBell();
-        // microsoft/terminal#2952
-        // If we're attached to a terminal, let's also pass the BEL through.
-        if (_pfnFlushToTerminal != nullptr)
-        {
-            _pfnFlushToTerminal();
-        }
+        needPassthrough = !_dispatch->WarningBell();
         break;
     case AsciiChars::BS:
         _dispatch->CursorBackward(1);
@@ -88,6 +84,11 @@ bool OutputStateMachineEngine::ActionExecute(const wchar_t wch)
     default:
         _dispatch->Print(wch);
         break;
+    }
+
+    if (needPassthrough && _pfnFlushToTerminal != nullptr)
+    {
+        _pfnFlushToTerminal();
     }
 
     _ClearLastChar();
