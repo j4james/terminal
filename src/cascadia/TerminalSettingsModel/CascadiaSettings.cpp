@@ -286,6 +286,7 @@ Model::Profile CascadiaSettings::DuplicateProfile(const Model::Profile& source)
     DUPLICATE_SETTING_MACRO(Padding);
     DUPLICATE_SETTING_MACRO(Commandline);
     DUPLICATE_SETTING_MACRO(StartingDirectory);
+    DUPLICATE_SETTING_MACRO(AnswerbackMessage);
     DUPLICATE_SETTING_MACRO(AntialiasingMode);
     DUPLICATE_SETTING_MACRO(HistorySize);
     DUPLICATE_SETTING_MACRO(SnapOnInput);

@@ -18,6 +18,7 @@ namespace Microsoft.Terminal.Core
         String StartingTitle;
         Boolean SuppressApplicationTitle;
         String WordDelimiters;
+        String AnswerbackMessage;
 
         Boolean ForceVTInput;
         Boolean TrimBlockSelection;

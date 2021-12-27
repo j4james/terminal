@@ -68,6 +68,8 @@ namespace Microsoft.Terminal.Settings.Model
         INHERITABLE_PROFILE_SETTING(String, StartingDirectory);
         String EvaluatedStartingDirectory { get; };
 
+        INHERITABLE_PROFILE_SETTING(String, AnswerbackMessage);
+
         FontConfig FontInfo { get; };
 
         IAppearanceConfig DefaultAppearance { get; };

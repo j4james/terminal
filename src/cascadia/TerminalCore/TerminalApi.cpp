@@ -612,6 +612,17 @@ std::wstring_view Terminal::GetWorkingDirectory() noexcept
 }
 
 // Method Description:
+// - Retrieves the ENQ answerback message configured in the settings.
+// Arguments:
+// - <none>
+// Return Value:
+// - a std::wstring_view containing the message.
+std::wstring_view Terminal::GetAnswerbackMessage() const noexcept
+{
+    return _answerbackMessage;
+}
+
+// Method Description:
 // - Saves the current text attributes to an internal stack.
 // Arguments:
 // - options, cOptions: if present, specify which portions of the current text attributes

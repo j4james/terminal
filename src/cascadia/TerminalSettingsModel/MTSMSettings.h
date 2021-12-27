@@ -68,6 +68,7 @@ Author(s):
     X(Microsoft::Terminal::Control::ScrollbarState, ScrollState, "scrollbarState", Microsoft::Terminal::Control::ScrollbarState::Visible)                      \
     X(Microsoft::Terminal::Control::TextAntialiasingMode, AntialiasingMode, "antialiasingMode", Microsoft::Terminal::Control::TextAntialiasingMode::Grayscale) \
     X(hstring, StartingDirectory, "startingDirectory")                                                                                                         \
+    X(hstring, AnswerbackMessage, "answerbackMessage", DEFAULT_ANSWERBACK_MESSAGE)                                                                             \
     X(bool, SuppressApplicationTitle, "suppressApplicationTitle", false)                                                                                       \
     X(guid, ConnectionType, "connectionType")                                                                                                                  \
     X(hstring, Icon, "icon", L"\uE756")                                                                                                                        \

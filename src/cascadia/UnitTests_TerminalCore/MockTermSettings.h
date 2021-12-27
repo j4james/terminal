@@ -33,6 +33,7 @@ namespace TerminalCoreUnitTests
         CursorStyle CursorShape() const noexcept { return CursorStyle::Vintage; }
         uint32_t CursorHeight() { return 42UL; }
         winrt::hstring WordDelimiters() { return winrt::hstring(DEFAULT_WORD_DELIMITERS); }
+        winrt::hstring AnswerbackMessage() { return winrt::hstring(DEFAULT_ANSWERBACK_MESSAGE); }
         bool CopyOnSelect() { return _copyOnSelect; }
         bool FocusFollowMouse() { return _focusFollowMouse; }
         winrt::hstring StartingTitle() { return _startingTitle; }
@@ -60,6 +61,7 @@ namespace TerminalCoreUnitTests
         void CursorShape(CursorStyle const&) noexcept {}
         void CursorHeight(uint32_t) {}
         void WordDelimiters(winrt::hstring) {}
+        void AnswerbackMessage(winrt::hstring) {}
         void CopyOnSelect(bool copyOnSelect) { _copyOnSelect = copyOnSelect; }
         void FocusFollowMouse(bool focusFollowMouse) { _focusFollowMouse = focusFollowMouse; }
         void StartingTitle(winrt::hstring const& value) { _startingTitle = value; }

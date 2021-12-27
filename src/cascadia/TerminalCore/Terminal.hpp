@@ -128,6 +128,8 @@ public:
     bool SetWorkingDirectory(std::wstring_view uri) noexcept override;
     std::wstring_view GetWorkingDirectory() noexcept override;
 
+    std::wstring_view GetAnswerbackMessage() const noexcept override;
+
     bool PushGraphicsRendition(const ::Microsoft::Console::VirtualTerminal::VTParameters options) noexcept override;
     bool PopGraphicsRendition() noexcept override;
 
@@ -303,6 +305,7 @@ private:
     size_t _hyperlinkPatternId;
 
     std::wstring _workingDirectory;
+    std::wstring _answerbackMessage;
 
     // This default fake font value is only used to check if the font is a raster font.
     // Otherwise, the font is changed to a real value with the renderer via TriggerFontChange.

@@ -37,6 +37,7 @@
     X(bool, SnapOnInput, true)                                                                                    \
     X(bool, AltGrAliasing, true)                                                                                  \
     X(winrt::hstring, WordDelimiters, DEFAULT_WORD_DELIMITERS)                                                    \
+    X(winrt::hstring, AnswerbackMessage, DEFAULT_ANSWERBACK_MESSAGE)                                              \
     X(bool, CopyOnSelect, false)                                                                                  \
     X(bool, FocusFollowMouse, false)                                                                              \
     X(winrt::Windows::Foundation::IReference<winrt::Microsoft::Terminal::Core::Color>, TabColor, nullptr)         \

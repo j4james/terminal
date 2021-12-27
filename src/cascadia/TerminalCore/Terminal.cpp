@@ -124,6 +124,7 @@ void Terminal::UpdateSettings(ICoreSettings settings)
     _snapOnInput = settings.SnapOnInput();
     _altGrAliasing = settings.AltGrAliasing();
     _wordDelimiters = settings.WordDelimiters();
+    _answerbackMessage = settings.AnswerbackMessage();
     _suppressApplicationTitle = settings.SuppressApplicationTitle();
     _startingTitle = settings.StartingTitle();
     _trimBlockSelection = settings.TrimBlockSelection();

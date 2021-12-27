@@ -30,6 +30,7 @@ namespace winrt::SampleApp::implementation
         WINRT_PROPERTY(winrt::Microsoft::Terminal::Core::CursorStyle, CursorShape, winrt::Microsoft::Terminal::Core::CursorStyle::Vintage);
         WINRT_PROPERTY(uint32_t, CursorHeight, DEFAULT_CURSOR_HEIGHT);
         WINRT_PROPERTY(winrt::hstring, WordDelimiters, DEFAULT_WORD_DELIMITERS);
+        WINRT_PROPERTY(winrt::hstring, AnswerbackMessage, DEFAULT_ANSWERBACK_MESSAGE);
         WINRT_PROPERTY(bool, CopyOnSelect, false);
         WINRT_PROPERTY(bool, InputServiceWarning, true);
         WINRT_PROPERTY(bool, FocusFollowMouse, false);

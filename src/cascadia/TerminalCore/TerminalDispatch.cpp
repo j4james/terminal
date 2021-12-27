@@ -114,7 +114,8 @@ CATCH_LOG_RETURN_FALSE()
 
 bool TerminalDispatch::EnquireAnswerback() noexcept
 {
-    return false;
+    const auto message = _terminalApi.GetAnswerbackMessage();
+    return !message.empty() ? _terminalApi.WriteResponse(message) : false;
 }
 
 bool TerminalDispatch::WarningBell() noexcept
