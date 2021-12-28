@@ -2033,6 +2033,10 @@
           "description": "The directory the shell starts in when it is loaded.",
           "type": "string"
         },
+        "answerbackMessage": {
+          "description": "The response that is sent when an ENQ control character is received.",
+          "type": "string"
+        },
         "suppressApplicationTitle": {
           "description": "When set to true, tabTitle overrides the default title of the tab and any title change messages from the application will be suppressed. When set to false, tabTitle behaves as normal.",
           "type": "boolean",
