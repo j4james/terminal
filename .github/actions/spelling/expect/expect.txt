@@ -40,6 +40,8 @@ ansicpg
 ANSISYS
 ANSISYSRC
 ANSISYSSC
+answerback
+ANSWERBACKMESSAGE
 antialias
 antialiasing
 ANull
