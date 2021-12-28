@@ -125,6 +125,7 @@ namespace SettingsModelLocalTests
 
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "startingDirectory": "%USERPROFILE%",
+                "answerbackMessage": "Windows Terminal",
 
                 "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
                 "hidden": false,
